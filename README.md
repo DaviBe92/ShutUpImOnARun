@@ -33,5 +33,21 @@ ShutUpImOnARun is a Python script for OBS designed to assist speedrunners by aut
    - **Mute Only**: Check this box if you want to only mute the source instead of hiding it as well.
    - **Source to show**: Choose the source that you want to show when the specified split is reached.
 4. Start your run in LiveSplit.
-5. The plugin will automatically monitor your progress and control the specified sources in OBS accordingly.
+5. The script will automatically monitor your progress and control the specified sources in OBS accordingly.
 6. When a run is stopped or reset, sources will be reverted to their initial state.
+
+## Known Limitations
+
+- If Mute Only is enabled, it only works if a single source is selected, whereas if it is disabled, sources or folders (also called groups in OBS) can be selected to manage multiple sources.
+   - Workarround if you want to only Mute multiple sources (e.g. Altert Box, Sound Alerts, etc.) 
+      - Create a group called e.g. "Alerts_with_sound" and move all your alert sources into it.
+      - Create a new source for every alert source. Choose "Create new" and call them e.g. "Alert1_muted", "Alert2_muted", etc. DO NOT select "Add Existing" to add them again.
+      - In the Audio Mixer manually mute every source you have just created. e.g. "AlertX_muted"
+      - Create another group called e.g. "Alerts_muted", and move all your muted alert sources into it.
+      - Hide the group called e.g. "Alerts_muted"
+      - Open the Scripts menu and select ShutUpImOnARun.py
+      - For "Source to hide", select "Alerts_with_sound"
+      - Keep "Mute Only" dissabled!
+      - For "Source to show", slect "Alerts_muted"
+   - This will hide and mute every source in the "Alerts_with_sound" group and show the "Alerts_muted" group where every source has been muted manually.
+- Failing to connect to LiveSplit will cause some stuttering in OBS. If the LiveSplit Server was not started before OBS was launched, the script will retry 6 times with a delay of 30 seconds. If it was unable to connect to LiveSplit within 3 Minutes, the script will be disabled until it is restarted in the Scripts Menu, or OBS is restarted. This means, if LiveSplit Server is not started, you will experience a slight stutter every 30 seconds within the first 3 Minutes of staring OBS.
