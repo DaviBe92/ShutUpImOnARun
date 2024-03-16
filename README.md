@@ -14,7 +14,7 @@ ShutUpImOnARun is a Python script for OBS designed to assist speedrunners by aut
 
    On Mac OS, this could be ```/usr/local/bin/python3```
 
-6. Download the script file (ShutUpImOnARun.py) and place it in your OBS Studio scripts directory.
+6. Download the script file ([ShutUpImOnARun.py](https://github.com/DaviBe92/ShutUpImOnARun/releases/download/test/ShutUpImOnARun.py)) and place it in your OBS Studio scripts directory.
 7. Go to Tools > Scripts.
 8. Click the + button to add a new script.
 9. Select ShutUpImOnARun.py from the file selection dialog and click Open.
